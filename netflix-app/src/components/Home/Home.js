@@ -1,27 +1,22 @@
 import Navbar from "../Navbar/Navbar";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import MovieList from "../MovieList/MovieList";
 
-const Home = () => {
-  const [moviesList, setMoviesList] = useState([]);
-  const fetchMoviesData = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_SERVER}trending`);
-      const data = await response.data;
-      // console.log(data);
-      setMoviesList(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => fetchMoviesData(), []);
+export default function Home() {
+  const [movies, setMovies] = useState([]);
+  async function getMovies() {
+    let response = await fetch(`${process.env.react_app_server}trending`);
+    let moviesData = await response.json();
+
+    setMovies(moviesData);
+  }
+  useEffect(() => {
+    getMovies();
+  }, []);
   return (
     <>
-      <Navbar></Navbar>
-      <MovieList movies={moviesList}></MovieList>
+      <Navbar />
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(18rem, 1fr))", backgroundColor: "#413F42" }}>{movies.length > 0 && <MovieList movies={movies} />}</div>
     </>
   );
-};
-
-export default Home;
+}
