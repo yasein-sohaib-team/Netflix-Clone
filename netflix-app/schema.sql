@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS movie;
+DROP TABLE IF EXISTS netflixTable;
 
-CREATE TABLE IF NOT EXISTS movie (
+CREATE TABLE IF NOT EXISTS netflixTable(
     id SERIAL PRIMARY KEY,
     name varchar(255),
     time varchar(255),
