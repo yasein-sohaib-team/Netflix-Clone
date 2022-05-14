@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import netflixLogo from "../../assets/logo.png";
 import { Nav, Container, Navbar } from "react-bootstrap";
 
@@ -16,8 +17,8 @@ const NavBar = () => {
           <LogoImg src={netflixLogo} />
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/favorite">Favorite List</Nav.Link>
+          <Link href="/home">Home</Link>
+          <Link href="/favorite">Favorite List</Link>
         </Nav>
       </Container>
     </Navbar>
