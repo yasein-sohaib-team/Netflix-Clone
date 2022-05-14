@@ -1,73 +1,31 @@
-import { useRef } from "react";
-import styled from "styled-components";
-// eslint-disable-next-line
-import { Modal, Button, Form, ModalDialog } from "react-bootstrap";
-
-const StyledModal = styled(Modal)`
-  height: 100vh;
-`;
-
-const Img = styled.img`
-  width: 100%;
-`;
+import React, { Modal, Button, Form } from "react-bootstrap";
 
 const ModalMovie = (props) => {
-  const commentRef = useRef();
-  async function submitHandler(e, movie) {
-    e.preventDefault();
-    const dataToBeSent = {
-      title: movie.title,
-      poster_path: movie.poster_path,
-      overview: movie.overview,
-      comment: movie.comment,
-    };
-    const url = `${process.env.REACT_APP_SERVER}addMovie`;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataToBeSent),
-    });
-    const data = await response.json();
-    console.log(response.status);
-    console.log(data);
-  }
-  console.log(props.movieData);
   return (
-    <StyledModal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">{props.movieData.title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Img src={`https://image.tmdb.org/t/p/w1280/${props.movieData.poster_path}`} />
-        <p>{props.movieData.overview}</p>
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Comment</Form.Label>
-            <Form.Control ref={commentRef} type="text" placeholder="Enter your comment" />
-
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            {/* onClick={handleComment} */}
-            Submit
+    <>
+      <Modal show={props.show} onHide={props.handleClose}>
+        <Modal.Header closeButton style={{ backgroundColor: "#7F8487" }}>
+          <Modal.Title>{props.chosenMovie.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ backgroundColor: "#7F8487" }}>
+          <img src={`https://image.tmdb.org/t/p/w400/${props.chosenMovie.poster_path}`} alt="Movie poster" />
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Add Comment</Form.Label>
+              <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer style={{ backgroundColor: "#7F8487" }}>
+          <Button variant="secondary" onClick={props.handleClose}>
+            Close
           </Button>
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={(e) => {
-              submitHandler(e, props.movieData);
-            }}
-          >
-            Add to Favorites
+          <Button variant="danger" onClick={props.handleClose}>
+            Add To Favorite
           </Button>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </StyledModal>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 

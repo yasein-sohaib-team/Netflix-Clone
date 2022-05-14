@@ -10,16 +10,15 @@ const MoviesContainer = styled.div`
 `;
 
 const MovieList = (props) => {
-  let fromFav;
-  if (props.fromFav != null) {
-    fromFav = true;
-  }
-  let movies = props.movies.map((ele) => (
-    <Movie data={ele} fromFav={fromFav}>
-      {props.children}
-    </Movie>
-  ));
-  return <MoviesContainer>{movies}</MoviesContainer>;
+  let movies = props.movies.map((ele) => <Movie data={ele}>{props.children}</Movie>);
+
+  return (
+    <>
+      <div>
+        <MoviesContainer>{movies}</MoviesContainer>
+      </div>
+    </>
+  );
 };
 
 export default MovieList;

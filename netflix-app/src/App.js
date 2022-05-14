@@ -1,7 +1,6 @@
 import "./App.css";
 import React from "react";
 import Home from "./components/Home/Home";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import FavList from "./components/FavList/FavList";
 
@@ -10,8 +9,8 @@ function App() {
     <>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="fav" element={<FavList />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/favorite" element={<FavList />} />
         </Routes>
       </div>
     </>
