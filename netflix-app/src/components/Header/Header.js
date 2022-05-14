@@ -11,15 +11,13 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/home">
           <LogoImg src={netflixLogo} />
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/favList">TV Shows</Nav.Link>
-          <Nav.Link href="/">Movies</Nav.Link>
-          <Nav.Link href="/">New & Popular</Nav.Link>
-          <Nav.Link href="/">My List</Nav.Link>
+          <Nav.Link href="/home">Home</Nav.Link>
+          <Nav.Link href="/getMovieById/:id">Movies</Nav.Link>
+          <Nav.Link href="/favList">My List</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
