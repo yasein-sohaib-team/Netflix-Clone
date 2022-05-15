@@ -11,18 +11,49 @@ const LogoImg = styled.img`
 
 const NavBar = () => {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="/home">
-          <LogoImg src={netflixLogo} />
-        </Navbar.Brand>
-        <Nav className="me-auto">
-          <Link href="/home">Home</Link>
-          <Link href="/favorite">Favorite List</Link>
-        </Nav>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">
+            <LogoImg src={netflixLogo} />
+          </Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/favorite">Favorite List</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 
 export default NavBar;
+
+
+// //import { Link } from "react-router-dom";
+// import Navbar from "react-bootstrap/Navbar";
+// // import Container from "react-bootstrap/Container"
+// import Container from "react-bootstrap/Container";
+// import Nav from "react-bootstrap/Nav";
+
+// function NavBar() {
+//   return (
+//     <>
+//       {/* <nav>
+//                 <Link to="/"> Home</Link>
+//                 <Link to="favRecipes"> Favorite Recipes</Link>
+//             </nav> */}
+//       <Navbar bg="primary" variant="dark">
+//         <Container>
+//           <Navbar.Brand href="#home">Yummy</Navbar.Brand>
+//           <Nav className="me-auto">
+//             <Nav.Link href="/">Home</Nav.Link>
+//             <Nav.Link href="/favorite">Fav Recipes</Nav.Link>
+//           </Nav>
+//         </Container>
+//       </Navbar>
+//     </>
+//   );
+// }
+
+// export default NavBar;
