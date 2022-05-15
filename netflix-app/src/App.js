@@ -8,7 +8,6 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <>
-      <h1>yasein</h1>
       <Navbar />
       {<div className="App">
         <Routes>
