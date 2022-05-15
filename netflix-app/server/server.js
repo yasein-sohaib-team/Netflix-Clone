@@ -92,7 +92,6 @@ function updateMovieHandler(req, res) {
 function trendingPageHandler(req, res) {
   const apiUrl = `https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}`;
 
-  axios;
   axios
     .get(apiUrl)
     .then((value) => {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ModalMovie from "../ModalMovie/ModalMovie";
+import { Navbar } from "react-bootstrap";
 
 export default function Movie(props) {
   const [modalShow, setModalShow] = useState(false);
@@ -17,6 +18,7 @@ export default function Movie(props) {
 
   return (
     <>
+      <Navbar />
       <Card style={{ width: "18rem", margin: "5px", backgroundColor: "#7F8487" }}>
         <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} />
         <Card.Body style={{ height: "400px" }}>
