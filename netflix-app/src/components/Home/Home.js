@@ -7,7 +7,6 @@ export default function Home() {
   async function getMovies() {
     let response = await fetch(`${process.env.react_app_server}trending`);
     let moviesData = await response.json();
-
     setMovies(moviesData);
   }
   useEffect(() => {

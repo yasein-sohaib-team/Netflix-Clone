@@ -9,18 +9,20 @@ const LogoImg = styled.img`
 
 const Header = () => {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="/home">
-          <LogoImg src={netflixLogo} />
-        </Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/getMovieById/:id">Movies</Nav.Link>
-          <Nav.Link href="/favList">My List</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">
+            <LogoImg src={netflixLogo} />
+          </Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/getMovieById/:id">Movies</Nav.Link>
+            <Nav.Link href="/favList">Favorite List</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 

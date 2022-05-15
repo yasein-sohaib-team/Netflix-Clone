@@ -8,13 +8,14 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <>
-      <div className="App">
-        <Navbar />
+      <h1>yasein</h1>
+      <Navbar />
+      {<div className="App">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/favorite" element={<FavList />} />
         </Routes>
-      </div>
+      </div>}
     </>
   );
 }

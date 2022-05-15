@@ -4,17 +4,21 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const app = express();
 
-const PORT = process.env.PORT || 3001;
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
-const apiKey = process.env.API_KEY;
-const client = new Client(process.env.databaseUrl);
+const client = new Client("postgres://yaseinburqan:6437@localhost:5432/netflixdatabase");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use(cors());
 dotenv.config();
+
+const PORT = process.env.PORT || 3003;
+
+//const apiKey = process.env.API_KEY;
+const apiKey = "218da8bf22c684d6bae14c5df2c30224";
 
 function MoviesLibrary(title, posterPath, overview) {
   this.title = title;
@@ -23,6 +27,7 @@ function MoviesLibrary(title, posterPath, overview) {
 }
 
 // end points handling functions
+
 let handleHomePage = (req, res) => {
   let sql = "SELECT * from movie;";
   client
@@ -100,7 +105,7 @@ function handleError(req, res) {
 }
 
 // end points
-app.get("/home", handleHomePage);
+app.get("/", handleHomePage);
 app.get("/trending", trendingPageHandler);
 app.post("/addMovie", handleAddMovie);
 app.get("/favorite", handleFavoritePage);
